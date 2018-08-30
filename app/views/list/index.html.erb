@@ -1,0 +1,8 @@
+
+<% if current_admin %>
+	Email: <%= current_admin.email  %> <br>
+	<%= link_to 'Sair', destroy_admin_session_path, method: :delete %>
+<% else %>
+	Logue-se primeiro! <br>
+	<%= link_to 'Entrar', new_admin_session_path  %>
+<% end %>
