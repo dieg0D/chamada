@@ -1,10 +1,20 @@
 <h2>Admins Cadastrados:</h2>
 <b>ID</b> <%= current_admin.id %><br>
 <b>Voce:</b>	<%= current_admin.email %> <br><br>
+<% if @admins.count > 1 %>
+	<br>
+	<div style="background-color: black; padding-top: 4px; width: 300px;"></div>
+	<br>
+<% end %>
 <% @admins.each do |adm| %>
 	<% if adm != current_admin %>
 		ID: <%= adm.id  %> <br>
 		Email: <%= adm.email %> <%= link_to 'Excluir', admin_registration_path(adm.id), method: :delete, data: { confirm: 'Está certo disso?!' } %> <br><br>
 	<% end %>
 <% end %>
+
+<br>
+<div style="background-color: black; padding-top: 4px; width: 300px;"></div>
+<br>
+
 <%= link_to 'Voltar', root_path  %>
