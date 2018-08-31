@@ -4,7 +4,7 @@ class ListController < ApplicationController
 		
 	end
 
-	def list
+	def lista
 		@admins = Admin.all
 	end
 end
