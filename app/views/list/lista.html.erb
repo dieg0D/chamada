@@ -1,9 +1,10 @@
 <h2>Admins Cadastrados:</h2>
-
+<b>ID</b> <%= current_admin.id %><br>
 <b>Voce:</b>	<%= current_admin.email %> <br><br>
 <% @admins.each do |adm| %>
 	<% if adm != current_admin %>
-		Email: <%= adm.email %> <br><br>
+		ID: <%= adm.id  %> <br>
+		Email: <%= adm.email %> <%= link_to 'Excluir', admin_registration_path(adm.id), method: :delete, data: { confirm: 'Está certo disso?!' } %> <br><br>
 	<% end %>
 <% end %>
 <%= link_to 'Voltar', root_path  %>
