@@ -2,12 +2,18 @@
 <% if current_admin %>
 
 	<h1>Bem vindo!</h1>
-	<%= link_to 'Mostrar Admins Cadastrados', admins_list_path %>
-	<%= link_to 'Cadastrar Novo Admin', new_admin_registration_path%> <br>
-	<b>Email</b>: <%= current_admin.email  %> <br><br>
+	
+	<b>Seu Email</b>: <%= current_admin.email  %> <br><br>
+
+	<%= link_to 'Mostrar Admins Cadastrados', admins_list_path %> <br><br>
+	<%= link_to 'Cadastrar Novo Admin', new_admin_registration_path%> <br><br>
+
+
 	<%= link_to 'Sair', destroy_admin_session_path, method: :delete %>
+
 <% else %>
-	Logue-se primeiro! <br><br>
+
+	<h1>Logue-se primeiro! </h1>
 	<%= link_to 'Entrar', new_admin_session_path, class: "btn btn-primary"  %>
 
 <% end %>
