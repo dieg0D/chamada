@@ -21,16 +21,19 @@ class Admins::RegistrationsController < Devise::RegistrationsController
    end
    
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+   def edit
+     super
+     #@admin = Admin.find(params[:format])
+     #render action: 'edit'
+      #Admin.find(params[:format]).render :edit
+   end
 
   # PUT /resource
   # def update
   #   super
   # end
 
- def destroy
+  def destroy
     Admin.find(params[:format]).destroy
     redirect_to root_path
     #redirect_back(fallback_location: fallback_location)

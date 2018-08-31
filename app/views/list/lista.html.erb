@@ -9,7 +9,11 @@
 <% @admins.each do |adm| %>
 	<% if adm != current_admin %>
 		ID: <%= adm.id  %> <br>
-		Email: <%= adm.email %> <%= link_to 'Excluir', admin_registration_path(adm.id), method: :delete, data: { confirm: 'Está certo disso?!' } %> <br><br>
+		Email: <%= adm.email %> 
+		<%= link_to 'Excluir', admin_registration_path(adm.id), method: :delete, data: { confirm: 'Está certo disso?!' } %> 
+		<%= link_to 'Editar', edit_admin_registration_path(adm.id)%> 
+	
+		<br><br>
 	<% end %>
 <% end %>
 
