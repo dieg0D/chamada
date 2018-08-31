@@ -1,8 +1,11 @@
 
 <% if current_admin %>
-	Email: <%= current_admin.email  %> <br>
+
+	<h1>Bem vindo!</h1>
+	<%= link_to 'Listar Admins', list_path%>
+	<b>Email</b>: <%= current_admin.email  %> <br><br>
 	<%= link_to 'Sair', destroy_admin_session_path, method: :delete %>
 <% else %>
-	Logue-se primeiro! <br>
-	<%= link_to 'Entrar', new_admin_session_path  %>
+	Logue-se primeiro! <br><br>
+	<%= link_to 'Entrar', new_admin_session_path, class: "btn btn-primary"  %>
 <% end %>
