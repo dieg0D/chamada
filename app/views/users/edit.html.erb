@@ -1,0 +1,9 @@
+<%= render 'shared/navbar'%>
+<div class = "container pb-3 pt-4">
+    <h3>Editar</h3>
+
+    <%= render 'form', user: @user %>
+
+    <%= link_to 'Mostrar', @user %> |
+    <%= link_to 'Voltar', users_path %>
+</div>

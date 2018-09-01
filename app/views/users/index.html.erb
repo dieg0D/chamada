@@ -1,0 +1,41 @@
+<%= render 'shared/navbar'%>
+
+<p id="notice"><%= notice %></p>
+<div class = "container pb-3 pt-4">
+  <h3>Membros</h3>
+
+  <table class ="table table-striped" >
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Membro</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.nome %></td>
+          <td><%= user.email %></td>
+          <td>
+            <% if user.membro == true %>
+              <span class="badge badge-success mr-1 d-block">Membro</span>
+            <% end %>
+            <% if user.membro == false %>
+              <span class="badge badge-danger mr-1 d-block">Trainee</span>
+            <% end %>
+        </td>
+          <td><%= link_to 'Mostrar', user, class: 'text-primary btn-sm' %></td>
+          <td><%= link_to 'Editar', edit_user_path(user), class: 'text-primary btn-sm' %></td>
+          <td><%= link_to 'Excluir', user, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger btn-sm" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Novo', new_user_path, class: 'btn btn-success mr-3 px-4' %>
+</div>
