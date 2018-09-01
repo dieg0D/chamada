@@ -1,0 +1,9 @@
+<%= render 'shared/navbar'%>
+<div class = "container pb-3 pt-4">
+
+    <h1>New Attendance List</h1>
+
+    <%= render 'form', attendance_list: @attendance_list %>
+
+    <%= link_to 'Back', attendance_lists_path %>
+</div>
