@@ -12,17 +12,21 @@
                 <%= link_to "Inicio", attendance_lists_path, class: "text-dark nav-link active" if current_page?('/attendance_lists')%>
             </li>
             <li class="nav-item">
-                <%= link_to "Lista de Membros", users_path, class: "nav-link" if !current_page?('/users')%>
-                <%= link_to "Lista de Membros", users_path, class: "text-dark nav-link active" if current_page?('/users')%>
+                <%= link_to "Lista de Membros", reger_path, class: "nav-link" if !current_page?('/users')%>
+                <%= link_to "Lista de Membros", reger_path, class: "text-dark nav-link active" if current_page?('/users')%>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Lista de Trainees", pt_path, class: "nav-link" if !current_page?('/users')%>
+                <%= link_to "Lista de Trainees", pt_path, class: "text-dark nav-link active" if current_page?('/users')%>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Chamada
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Processo Trainee</a>
+                    <%= link_to "Processo Trainee", attendance_lists_path, class: "dropdown-item"%>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">REGER</a>
+                    <%= link_to "REGER", attendance_lists_path, class: "dropdown-item"%>
                 </div>
             </li>
             </ul>

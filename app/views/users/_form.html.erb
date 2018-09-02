@@ -31,8 +31,8 @@
   </div>
   <br>
       <div class="actions">
-        <%= form.submit 'Criar', class: "btn btn-success buttons-new" if current_page?('/users/new')%>
-        <%= form.submit 'Atualizar', class: "btn btn-success buttons-new" if !current_page?('/users/new')%>
+        <%= form.submit 'Criar', class: "btn btn btn-primary buttons-new mr-3 px-4'" if current_page?('/users/new')%>
+        <%= form.submit 'Atualizar', class: "btn btn btn-primary buttons-new mr-3 px-4'" if !current_page?('/users/new')%>
       </div>
     <% end %>
   </div>
