@@ -19,7 +19,7 @@
 
       <div class="field col">
         <%= form.label :email %>
-        <%= form.text_field :email, class: "form-control" %>
+        <%= form.text_field :email, class: "form-control"%>
       </div>
   </div>
   <br>
@@ -31,8 +31,8 @@
   </div>
   <br>
       <div class="actions">
-        <%= form.submit 'Criar', class: "btn btn btn-primary buttons-new mr-3 px-4'" if current_page?('/users/new')%>
-        <%= form.submit 'Atualizar', class: "btn btn btn-primary buttons-new mr-3 px-4'" if !current_page?('/users/new')%>
+        <%= form.submit 'Criar', class: "btn btn btn-primary float-right buttons-new mr-3 px-4'" if current_page?('/users/new')%>
+        <%= form.submit 'Atualizar', class: "btn btn btn-primary float-right buttons-new mr-3 px-4'" if !current_page?('/users/new')%>
       </div>
     <% end %>
   </div>

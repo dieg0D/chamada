@@ -17,7 +17,7 @@
       <% @attendance_lists.each do |attendance_list| %>
         <tr>
           <td><%= attendance_list.data %></td>
-          <td><%= attendance_list.description %></td>
+          <td>Tipo da Chamada</td>
           <td><%= link_to 'Mostrar', attendance_list, class: 'text-primary btn-sm'%></td>
           <td><%= link_to 'Editar', edit_attendance_list_path(attendance_list), class: 'text-primary btn-sm'%></td>
           <td><%= link_to 'Excluir', attendance_list, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger btn-sm" %></td>
@@ -28,5 +28,5 @@
 
   <br>
 
-  <%= link_to 'Nova lista de chamada', new_attendance_list_path, class: 'btn btn-primary mr-3 px-4' %>
+  <%= link_to 'Nova lista de chamada', new_attendance_list_path, class: 'btn btn-primary float-right mr-3 px-4' %>
 </div>
