@@ -1,5 +1,6 @@
 class AttendanceListsController < ApplicationController
   before_action :set_attendance_list, only: [:show, :edit, :update, :destroy]
+  before_action :select_type, only: [:new, :edit, :update, :create]
 
   # GET /attendance_lists
   # GET /attendance_lists.json
@@ -62,6 +63,10 @@ class AttendanceListsController < ApplicationController
   end
 
   private
+    def select_type
+      @select_type = Type.all
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_attendance_list
       @attendance_list = AttendanceList.find(params[:id])
@@ -69,6 +74,6 @@ class AttendanceListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attendance_list_params
-      params.require(:attendance_list).permit(:data, :description)
+      params.require(:attendance_list).permit(:data, :description, :type_id)
     end
 end

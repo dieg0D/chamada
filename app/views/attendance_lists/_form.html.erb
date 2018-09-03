@@ -11,10 +11,11 @@
     </div>
   <% end %>
 <div class = "container pb-3 pt-4">
-    <div class= "row">
-      <div class="field col">
-        <%= form.label :data %>
-        <%= form.date_select :data, { :order => [:day, :month, :year]}, class: "custom-select mb-1" %>
+    <div class= "form-row">
+      
+        <div class="field col">
+          <%= form.label :type_id, "Tipo da Chamada"%>
+          <%= collection_select(:attendance_list, :type_id,  @select_type, :id, :name, {}, {:class=>'form-control'})%>
       </div>
     </div>
     <div class = "row">
