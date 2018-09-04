@@ -17,7 +17,7 @@
       <% @attendance_lists.each do |attendance_list| %>
         <tr>
           <td><%= attendance_list.created_at.strftime("%d/%m/%y")%></td>
-          <td><%= attendance_list.type %></td>
+          <td><%= attendance_list.type.name %></td>
           <td><%= link_to 'Mostrar', attendance_list, class: 'text-primary btn-sm'%></td>
           <td><%= link_to 'Editar', edit_attendance_list_path(attendance_list), class: 'text-primary btn-sm'%></td>
           <td><%= link_to 'Excluir', attendance_list, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger btn-sm" %></td>
