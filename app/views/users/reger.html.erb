@@ -17,6 +17,10 @@
     <tbody>
       <% @users.each do |user| %>
         <% if user.membro == true %>
+            <% user.status.each do |dd| %>
+             Estado: <%= dd.state %> <br>
+             Desc: <%= AttendanceList.find(dd.attendance_list_id).description %> <br>
+              <% end %>
             <tr>
               <td><%= user.nome %></td>
               <td><%= user.email %></td>

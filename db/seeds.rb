@@ -11,3 +11,6 @@ Type.create! [
     {name: "Processo Trainee"},
     {name: "REGER"}
   ]
+
+User.create(nome: "Jorge", email: "teste@email.com")
+AttendanceList.create(description: "asudhauishdas", type_id: "2");
