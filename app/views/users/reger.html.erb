@@ -19,7 +19,7 @@
         <% if user.membro == true %>
             <% user.status.each do |dd| %>
              Estado: <%= dd.state %> <br>
-             Desc: <%= AttendanceList.find(dd.attendance_list_id).description %> <br>
+             Descri: <%=AttendanceList.find(dd.attendance_list_id).description%><br>
               <% end %>
             <tr>
               <td><%= user.nome %></td>

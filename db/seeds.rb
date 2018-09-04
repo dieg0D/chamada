@@ -7,10 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #categories
+puts "Seeding..."
 Type.create! [
     {name: "Processo Trainee"},
     {name: "REGER"}
   ]
 
-User.create(nome: "Jorge", email: "teste@email.com")
-AttendanceList.create(description: "asudhauishdas", type_id: "2");
+User.create(nome: "Jorge", email: "jorge@email.com", membro: "true")
+User.create(nome: "Paulo", email: "paulo@email.com", membro: "true")
+User.create(nome: "maria", email: "maria@email.com", membro: "false")
+
+
+AttendanceList.create(description: "REGER 1", type_id: "2");
+AttendanceList.create(description: "REGER 2", type_id: "2");
+AttendanceList.create(description: "Primeira aula do PT", type_id: "1");
+
+
+puts "Seeding... OK"
