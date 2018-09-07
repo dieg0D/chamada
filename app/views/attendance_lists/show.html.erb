@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+	
+<br>
 
 <p>
   <strong>Data:</strong>
@@ -9,6 +11,28 @@
   <strong>Description:</strong>
   <%= @attendance_list.description %>
 </p>
+
+<br><br>
+
+<table cellpadding="20">
+	<tr>
+		<th>ID</th>
+		<th>Nome</th>
+		<th>E-mail</th>
+		<th>Estado</th>
+	</tr>
+	
+<% @attendance_list.status.each do |dd|  %> 
+	<tr>
+		<td><%= dd.user_id  %></td>
+		<td><%= User.find(dd.user_id).nome  %></td>
+		<td><%= User.find(dd.user_id).email  %></td>
+		<td> <%= dd.state %> </td>
+	</tr>	
+
+<% end %> 
+</table>
+
 
 <%= link_to 'Edit', edit_attendance_list_path(@attendance_list) %> |
 <%= link_to 'Back', attendance_lists_path %>
