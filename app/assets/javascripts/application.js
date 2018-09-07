@@ -17,3 +17,9 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+$("#hiring_stage_dropdown").on("change",function() {
+            var state = $(this).val();
+            alert(state);
+});

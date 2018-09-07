@@ -1,0 +1,18 @@
+<%= form_tag status_index_path do %>
+	<% @status.each do |st| %>
+		<%= fields_for 'status[]', st do |s| %>
+
+	      <div class="field">
+	        <%= s.label :Estado %><br>
+	        <%= s.text_field :state %>
+	      </div>
+			<div class="field">
+	        <%= s.hidden_field :user_id, value: st.user_id %>
+	      </div>
+
+	     <% end %>
+	  <% end %>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
