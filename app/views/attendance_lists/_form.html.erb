@@ -21,15 +21,22 @@
     </div>
     <div class = "row">
       <div class="field col">
-        <%= form.label :description%>
+        <%= form.label :description %>
         <%= form.text_area :description, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div class="field col">
+        <%= form.label :data %>
+       <%= form.date_field :data, class: 'form-control' %>
       </div>
     </div>
 
 
 <br>
     <div class="actions">
-      <%= form.submit 'Criar Lista', class: "btn float-right  btn-primary mr-3 px-4'" %>
+      <%= form.submit 'Avançar', class: "btn float-right  btn-primary mr-3 px-4'" %>
     </div>
   <% end %>
 </div>

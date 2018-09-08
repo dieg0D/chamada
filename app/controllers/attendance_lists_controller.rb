@@ -27,8 +27,6 @@ class AttendanceListsController < ApplicationController
   # POST /attendance_lists
   # POST /attendance_lists.json
   def create
-    
-
     @attendance_list = AttendanceList.new(attendance_list_params)
       if @attendance_list.save 
       redirect_to new_status_path
@@ -42,15 +40,14 @@ class AttendanceListsController < ApplicationController
   # PATCH/PUT /attendance_lists/1
   # PATCH/PUT /attendance_lists/1.json
   def update
-    respond_to do |format|
+  
       if @attendance_list.update(attendance_list_params)
-        format.html { redirect_to @attendance_list, notice: 'Attendance list was successfully updated.' }
-        format.json { render :show, status: :ok, location: @attendance_list }
+        redirect_to edit_status_path(@attendance_list)
+       
       else
-        format.html { render :edit }
-        format.json { render json: @attendance_list.errors, status: :unprocessable_entity }
+        render :edit 
       end
-    end
+   
   end
 
   # DELETE /attendance_lists/1

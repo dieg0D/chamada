@@ -1,17 +1,61 @@
+
 <%= form_tag status_index_path do %>
+	<table cellpadding="14">
+		<tr>
+			<th>Nome</th>
+			<th>Email</th>
+			<th>Estado</th>
+		</tr>
 	<% @status.each do |st| %>
 		<%= fields_for 'status[]', st do |s| %>
+		<% if  @att.type_id == 1 %>
+		<% if  !@user.find(st.user_id).membro %>
+			
+		
+		<tr>
+		
+		<td> 
+			<%= @user.find(st.user_id).nome %>
+	    </td>
+		
+		<td> 
+			<%= @user.find(st.user_id).email %>
+	    </td>
 
-	      <div class="field">
-	        <%= s.label :Estado %><br>
-	        <%= s.text_field :state %>
-	      </div>
-			<div class="field">
-	        <%= s.hidden_field :user_id, value: st.user_id %>
-	      </div>
+		<td>
+	        <%= s.select :state, options_for_select(["Presente", "Falta", "Falta Justificada", "Atraso Justificado"]), :class => 'genForm_dropBox' %>
+	    </td>
 
-	     <% end %>
+		
+
+		<%= s.hidden_field :user_id, value: st.user_id %>
+	    
+		</tr>
+		<% end %>
+		<% else %>
+		<tr>
+		
+		<td> 
+			<%= @user.find(st.user_id).nome %>
+	    </td>
+		
+		<td> 
+			<%= @user.find(st.user_id).email %>
+	    </td>
+
+		<td>
+	        <%= s.select :state, options_for_select(["Presente", "Falta", "Falta Justificada", "Atraso Justificado"]), :class => 'genForm_dropBox' %>
+	    </td>
+
+		
+
+		<%= s.hidden_field :user_id, value: st.user_id %>
+	    
+		</tr>
+		<% end %>
+	    <% end %>
 	  <% end %>
+	</table>
   <div class="actions">
     <%= submit_tag %>
   </div>

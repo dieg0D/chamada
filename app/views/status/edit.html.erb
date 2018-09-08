@@ -1,0 +1,37 @@
+
+<%= form_tag status_path, :method => :patch do %>
+	<table cellpadding="14">
+		<tr>
+			<th>Nome</th>
+			<th>Email</th>
+			<th>Estado</th>
+		</tr>
+	<% @status.each do |st| %>
+		<%= fields_for 'status[]', st do |s| %>
+		<tr>
+		
+
+		<td> 
+			<%= @user.find(st.user_id).nome %>
+	    </td>
+		
+		<td> 
+			<%= @user.find(st.user_id).email %>
+	    </td>
+		
+		<td>
+	        <%= s.select :state,options_for_select(["Presente", "Falta", "Falta Justificada", "Atraso Justificado"], st.state), :class => 'genForm_dropBox' %>
+	    </td>
+
+		
+
+		<%= s.hidden_field :user_id, value: st.user_id %>
+	    
+		</tr>
+	    <% end %>
+	  <% end %>
+	</table>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
