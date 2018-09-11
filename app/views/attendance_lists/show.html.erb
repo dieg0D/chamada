@@ -1,6 +1,4 @@
 
-<% if current_admin %>
-
 	<p id="notice"><%= notice %></p>
 	
 <br>
@@ -40,7 +38,3 @@
 <%= link_to 'Edit', edit_attendance_list_path(@attendance_list) %> |
 <%= link_to 'Back', attendance_lists_path %>
 
-<% else %>
-	logue-se
-   <%= link_to 'aqui', new_admin_session_path %> 
-<% end %>

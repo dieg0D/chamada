@@ -1,5 +1,4 @@
-<% if current_admin %>
-	<h1>Editing Attendance List</h1>
+<h1>Editing Attendance List</h1>
 
 <%= render 'form', attendance_list: @attendance_list %>
 
@@ -7,8 +6,3 @@
 <%= link_to 'Back', attendance_lists_path %>
 
 
-
-<% else %>
-	logue-se
-   <%= link_to 'aqui', new_admin_session_path %> 
-<% end %>
