@@ -6,8 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 #categories
 puts "Seeding..."
+
+Admin.create(email: "admin@email.com", password: "admin123", password_confirmation:"admin123");
+
 Type.create! [
     {name: "Processo Trainee"},
     {name: "REGER"}
@@ -30,6 +34,5 @@ AttendanceList.find(2).status.create(user_id: "2", state: "Falta Justificada");
 
 AttendanceList.create(description: "Primeira aula do PT", type_id: "1");
 AttendanceList.find(3).status.create(user_id: "3", state: "Falta");
-
 
 puts "Seeding... OK"
