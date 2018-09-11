@@ -12,10 +12,8 @@ puts "Seeding..."
 
 Admin.create(email: "admin@email.com", password: "admin123", password_confirmation:"admin123");
 
-Type.create! [
-    {name: "Processo Trainee"},
-    {name: "REGER"}
-  ]
+Type.create(name: "Processo Trainee")
+Type.create(name: "REGER")
 
 User.create(nome: "Jorge", email: "jorge@email.com", membro: "true")
 User.create(nome: "Paulo", email: "paulo@email.com", membro: "true")
@@ -36,13 +34,3 @@ AttendanceList.create(description: "Primeira aula do PT", type_id: "1");
 AttendanceList.find(3).status.create(user_id: "3", state: "Falta");
 
 puts "Seeding... OK"
-
-
-<% if current_admin %>
-
-
-
-<% else %>
-	logue-se
-   <%= link_to 'aqui', new_admin_session_path %> 
-<% end %>
