@@ -17,18 +17,13 @@
     <tbody>
       <% @users.each do |user| %>
         <% if user.membro == true %>
-            <% user.status.each do |dd| %>
-             Estado: <%= dd.state %> <br>
-             Descri: <%=AttendanceList.find(dd.attendance_list_id).description%><br>
-              <% end %>
+    
             <tr>
               <td><%= user.nome %></td>
               <td><%= user.email %></td>
               <td>
-                <% if user.membro == true %>
-                <span class="badge badge-success mr-1 d-block">Membro</span>
-                <% end %>
-            </td>
+                  <span class="badge badge-success mr-1 d-block">Membro</span>
+              </td>
             <td><%= link_to 'Mostrar', user, class: 'text-primary btn-sm' %></td>
             <td><%= link_to 'Editar', edit_user_path(user), class: 'text-primary btn-sm' %></td>
             <td><%= link_to 'Excluir', user, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger btn-sm" %></td>

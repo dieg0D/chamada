@@ -3,6 +3,6 @@ class AttendanceList < ApplicationRecord
     has_many :status, dependent: :destroy 
  	has_many :user, through: :status
 
- 	#validates :data, presence: true
+ 	validates :data, presence: true
 
 end

@@ -36,3 +36,13 @@ AttendanceList.create(description: "Primeira aula do PT", type_id: "1");
 AttendanceList.find(3).status.create(user_id: "3", state: "Falta");
 
 puts "Seeding... OK"
+
+
+<% if current_admin %>
+
+
+
+<% else %>
+	logue-se
+   <%= link_to 'aqui', new_admin_session_path %> 
+<% end %>
