@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2018_09_04_013127) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +26,6 @@ ActiveRecord::Schema.define(version: 2018_09_04_013127) do
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
-
 
   create_table "attendance_lists", force: :cascade do |t|
     t.date "data"
@@ -64,6 +61,4 @@ ActiveRecord::Schema.define(version: 2018_09_04_013127) do
   end
 
   add_foreign_key "attendance_lists", "types"
-
-
 end
