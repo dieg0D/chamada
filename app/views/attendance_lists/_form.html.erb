@@ -1,4 +1,3 @@
-
 <%= form_with(model: attendance_list, local: true) do |form| %>
   <% if attendance_list.errors.any? %>
     <div id="error_explanation">
@@ -29,14 +28,16 @@
     <div class = "row">
       <div class="field col">
         <%= form.label :data %>
-       <%= form.date_field :data, class: 'form-control' %>
+        <%= form.date_field :data, class: 'form-control' %>
       </div>
     </div>
 
-
-<br>
+    <br>
     <div class="actions">
-      <%= form.submit 'Avançar', class: "btn float-right  btn-primary mr-3 px-4'" %>
+      <%= form.submit 'Avançar', class: "btn float-right  btn-primary mr-3 px-4" if current_page?(new_attendance_list_path)%>
+      <%= form.submit 'Editar Lista de Chamada', class: "btn float-right  btn-primary mr-3 px-4" if !current_page?(new_attendance_list_path) %>
+      <%= link_to 'Exibir lista de Chamada', @attendance_list, class: 'btn btn-info float-right mr-3 px-4' if !current_page?(new_attendance_list_path)%>
+      <%= link_to 'Back', attendance_lists_path, class: 'btn btn-secondary mr-3 px-4'%>
     </div>
   <% end %>
 </div>

@@ -1,62 +1,57 @@
+<%= render 'shared/navbar'%>
+<div class = "container pb-3 pt-4">
+	<h3><span class="badge badge-pill badge-success">Lista de Chamada</span></h3>
+  <br>
 
-<%= form_tag status_index_path do %>
-	<table cellpadding="14">
-		<tr>
-			<th>Nome</th>
-			<th>Email</th>
-			<th>Estado</th>
-		</tr>
-	<% @status.each do |st| %>
-		<%= fields_for 'status[]', st do |s| %>
-		<% if  @att.type_id == 1 %>
-		<% if  !@user.find(st.user_id).membro %>
+	<%= form_tag status_index_path do %>
+		<table class ="table table-hover">
+			<tr>
+				<th>Nome</th>
+				<th>Email</th>
+				<th>Estado</th>
+			</tr>
+		
+			<% @status.each do |st| %>
+				<%= fields_for 'status[]', st do |s| %>
+					<% if  @att.type_id == 1 %>
+						<% if  !@user.find(st.user_id).membro %>			
+							<tr>		
+								<td> 
+									<%= @user.find(st.user_id).nome %>
+								</td>		
+								<td> 
+									<%= @user.find(st.user_id).email %>
+								</td>
+								<td>
+									<%= s.select :state, options_for_select(["Presente", "Falta", "Falta Justificada", "Atraso Justificado"]), :class => 'genForm_dropBox form-control' %>
+								</td>
+								<%= s.hidden_field :user_id, value: st.user_id %>	    
+							</tr>
+						<% end %>
+					<% else %>
+							<tr>		
+								<td> 
+									<%= @user.find(st.user_id).nome %>
+								</td>		
+								<td> 
+									<%= @user.find(st.user_id).email %>
+								</td>
+								<td>
+									<%= s.select :state, options_for_select(["Presente", "Falta", "Falta Justificada", "Atraso Justificado"]), :class => 'genForm_dropBox form-control' %>
+								</td>
+								<%= s.hidden_field :user_id, value: st.user_id %>	    
+							</tr>
+					<% end %>
+				<% end %>
+			<% end %>
+		</table>
+		
+		<div class="actions">
+			<br>
+			<%= submit_tag "Salvar nova chamada", class: 'btn btn-primary float-right mr-3 px-4'%>
 			
-		
-		<tr>
-		
-		<td> 
-			<%= @user.find(st.user_id).nome %>
-	    </td>
-		
-		<td> 
-			<%= @user.find(st.user_id).email %>
-	    </td>
+			<%= link_to "Voltar", :back, class: "btn btn-secondary mr-3 px-4" %>
+		</div>
 
-		<td>
-	        <%= s.select :state, options_for_select(["Presente", "Falta", "Falta Justificada", "Atraso Justificado"]), :class => 'genForm_dropBox' %>
-	    </td>
-
-		
-
-		<%= s.hidden_field :user_id, value: st.user_id %>
-	    
-		</tr>
-		<% end %>
-		<% else %>
-		<tr>
-		
-		<td> 
-			<%= @user.find(st.user_id).nome %>
-	    </td>
-		
-		<td> 
-			<%= @user.find(st.user_id).email %>
-	    </td>
-
-		<td>
-	        <%= s.select :state, options_for_select(["Presente", "Falta", "Falta Justificada", "Atraso Justificado"]), :class => 'genForm_dropBox' %>
-	    </td>
-
-		
-
-		<%= s.hidden_field :user_id, value: st.user_id %>
-	    
-		</tr>
-		<% end %>
-	    <% end %>
-	  <% end %>
-	</table>
-  <div class="actions">
-    <%= submit_tag %>
-  </div>
-<% end %>
+	<% end %>
+</div>	
