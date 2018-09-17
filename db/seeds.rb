@@ -20,17 +20,17 @@ User.create(nome: "Paulo", email: "paulo@email.com", membro: "true")
 User.create(nome: "maria", email: "maria@email.com", membro: "false")
 
 
-AttendanceList.create(description: "REGER 1", type_id: "2");
+AttendanceList.create(data:"10/10/10", description: "REGER 1", type_id: "2");
 AttendanceList.find(1).status.create(user_id: "1", state: "Presente");
 AttendanceList.find(1).status.create(user_id: "2", state: "Presente");
 
 
-AttendanceList.create(description: "REGER 2", type_id: "2");
+AttendanceList.create(data:"10/10/10", description: "REGER 2", type_id: "2");
 AttendanceList.find(2).status.create(user_id: "1", state: "Ausente");
 AttendanceList.find(2).status.create(user_id: "2", state: "Falta Justificada");
 
 
-AttendanceList.create(description: "Primeira aula do PT", type_id: "1");
+AttendanceList.create(data:"10/10/10", description: "Primeira aula do PT", type_id: "1");
 AttendanceList.find(3).status.create(user_id: "3", state: "Falta");
 
 puts "Seeding... OK"
