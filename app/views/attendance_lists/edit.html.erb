@@ -1,8 +1,7 @@
-<h1>Editing Attendance List</h1>
+<%= render 'shared/navbar'%>
 
-<%= render 'form', attendance_list: @attendance_list %>
-
-<%= link_to 'Show', @attendance_list %> |
-<%= link_to 'Back', attendance_lists_path %>
-
+<div class = "container pb-3 pt-4">
+    <h3><span class="badge badge-pill badge-success">Editar listar de Chamada</span></h3>
+    <%= render 'form', attendance_list: @attendance_list %>
+</div>
 

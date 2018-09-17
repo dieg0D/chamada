@@ -1,40 +1,50 @@
+<p id="notice"><%= notice %></p>	
 
-	<p id="notice"><%= notice %></p>
-	
-<br>
+<%= render 'shared/navbar'%>
 
-<p>
-  <strong>Data:</strong>
-  <%= @attendance_list.data %>
-</p>
+<div class = "container pb-3 pt-4">
+	<p>
+	<strong>Data:</strong>
+	<%= @attendance_list.data %>
+	</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @attendance_list.description %>
-</p>
+	<p>
+	<strong>Descrição:</strong>
+	<%= @attendance_list.description %>
+	</p>
 
-<br><br>
+	<table class ="table table-hover">
+		<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Email</th>
+			<th>Estado</th>
+		</tr>
+		</thead>
+			
+		<% @attendance_list.status.each do |dd|  %> 
+			<tr>
+				<td><%= User.find(dd.user_id).nome  %></td>
+				<td><%= User.find(dd.user_id).email  %></td>
+				<td> 
+					<% if dd.state == "Falta" %>
+						<span class="badge badge-pill badge-danger mr-1 d-block">Falta</span>
+					<% end %>
+					<% if dd.state == "Presente" %>
+						<span class="badge badge-pill badge-success mr-1 d-block">Presente</span>
+					<% end %>
+					<% if dd.state == "Falta Justificada" %>
+						<span class="badge badge-pill badge-warning mr-1 d-block">Falta Justificada</span>
+					<% end %>
+					<% if dd.state == "Atraso Justificado" %>
+						<span class="badge badge-pill badge-dark mr-1 d-block">Atraso Justificado</span>
+					<% end %>
+				</td>
+				
+			</tr>	
+		<% end %> 
+	</table>
 
-<table cellpadding="20">
-	<tr>
-		<th>ID</th>
-		<th>Nome</th>
-		<th>E-mail</th>
-		<th>Estado</th>
-	</tr>
-	
-<% @attendance_list.status.each do |dd|  %> 
-	<tr>
-		<td><%= dd.user_id  %></td>
-		<td><%= User.find(dd.user_id).nome  %></td>
-		<td><%= User.find(dd.user_id).email  %></td>
-		<td> <%= dd.state %> </td>
-	</tr>	
-
-<% end %> 
-</table>
-
-
-<%= link_to 'Edit', edit_attendance_list_path(@attendance_list) %> |
-<%= link_to 'Back', attendance_lists_path %>
-
+	<%= link_to 'Editar', edit_attendance_list_path(@attendance_list), class: "float-right btn btn-primary mr-3 px-4" %> 
+	<%= link_to 'Voltar', :back, class: "btn btn-secondary mr-3 px-4" %>
+</div>

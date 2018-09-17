@@ -1,8 +1,9 @@
 <%= render 'shared/navbar'%>
+
 <div class = "container pb-3 pt-4">
-    <h1>New User</h1>
-
+    <h3><span class="badge badge-pill badge-success">Novo Membro/Trainee</span></h3>
+    <br>
     <%= render 'form', user: @user %>
+    <%= link_to 'Back', users_path, class: "btn btn-secondary mr-3 px-4" %>
 
-    <%= link_to 'Back', users_path %>
 </div>
