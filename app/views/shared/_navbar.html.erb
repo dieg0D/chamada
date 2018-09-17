@@ -19,6 +19,10 @@
                 <%= link_to "Lista de Trainees", pt_path, class: "nav-link" if !current_page?('/users')%>
                 <%= link_to "Lista de Trainees", pt_path, class: "text-dark nav-link active" if current_page?('/users')%>
             </li>
+            <li class="nav-item">
+                <%= link_to "Todos", users_path, class: "nav-link" if !current_page?('/users')%>
+                <%= link_to "Todos", users_path, class: "text-dark nav-link active" if current_page?('/users')%>
+            </li>
             </ul>
             <!--
             <form class="form-inline my-2 my-lg-0">
