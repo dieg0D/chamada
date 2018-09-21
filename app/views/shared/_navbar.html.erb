@@ -8,22 +8,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mx-2">
             <li class="nav-item">
+                <a href="#" class="btn btn-1 btn-1f">kkk</a>
                 <%= link_to "Inicio", attendance_lists_path, class: "nav-link" if !current_page?('/attendance_lists')%>
                 <%= link_to "Inicio", attendance_lists_path, class: "text-dark nav-link active" if current_page?('/attendance_lists')%>
             </li>
             <li class="nav-item">
-                <%= link_to "Chamadas - REGER", c_reger_path, class: "nav-link" if !current_page?('/users')%>
+                <%= link_to "Chamadas - REGER", c_reger_path, class: "nav-link" if !current_page?('/c_reger')%>
+                <%= link_to "Chamadas - REGER", c_reger_path, class: "text-dark nav-link active" if current_page?('/c_reger')%>
             </li>
             <li class="nav-item">
-                <%= link_to "Chamadas - PT", c_pt_path, class: "nav-link" if !current_page?('/users')%>
+                <%= link_to "Chamadas - PT", c_pt_path, class: "nav-link" if !current_page?('/c_pt')%>
+                <%= link_to "Chamadas - PT", c_pt_path, class: "text-dark nav-link active" if current_page?('/c_pt')%>
             </li>
             <li class="nav-item">
-                <%= link_to "Lista de Membros", reger_path, class: "nav-link" if !current_page?('/users')%>
-                <%= link_to "Lista de Membros", reger_path, class: "text-dark nav-link active" if current_page?('/users')%>
+                <%= link_to "Lista de Membros", reger_path, class: "nav-link" if !current_page?('/reger')%>
+                <%= link_to "Lista de Membros", reger_path, class: "text-dark nav-link active" if current_page?('/reger')%>
             </li>
             <li class="nav-item">
-                <%= link_to "Lista de Trainees", pt_path, class: "nav-link" if !current_page?('/users')%>
-                <%= link_to "Lista de Trainees", pt_path, class: "text-dark nav-link active" if current_page?('/users')%>
+                <%= link_to "Lista de Trainees", pt_path, class: "nav-link" if !current_page?('/pt')%>
+                <%= link_to "Lista de Trainees", pt_path, class: "text-dark nav-link active" if current_page?('/pt')%>
             </li>
             <li class="nav-item">
                 <%= link_to "Todos", users_path, class: "nav-link" if !current_page?('/users')%>
