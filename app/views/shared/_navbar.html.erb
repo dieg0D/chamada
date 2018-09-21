@@ -7,8 +7,8 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mx-2">
+
             <li class="nav-item">
-                <a href="#" class="btn btn-1 btn-1f">kkk</a>
                 <%= link_to "Inicio", attendance_lists_path, class: "nav-link" if !current_page?('/attendance_lists')%>
                 <%= link_to "Inicio", attendance_lists_path, class: "text-dark nav-link active" if current_page?('/attendance_lists')%>
             </li>
