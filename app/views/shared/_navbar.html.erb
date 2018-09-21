@@ -12,10 +12,10 @@
                 <%= link_to "Inicio", attendance_lists_path, class: "text-dark nav-link active" if current_page?('/attendance_lists')%>
             </li>
             <li class="nav-item">
-                <%= link_to "Chamadas - REGER", reger_path, class: "nav-link" if !current_page?('/users')%>
+                <%= link_to "Chamadas - REGER", c_reger_path, class: "nav-link" if !current_page?('/users')%>
             </li>
             <li class="nav-item">
-                <%= link_to "Chamadas - PT", reger_path, class: "nav-link" if !current_page?('/users')%>
+                <%= link_to "Chamadas - PT", c_trainees_path, class: "nav-link" if !current_page?('/users')%>
             </li>
             <li class="nav-item">
                 <%= link_to "Lista de Membros", reger_path, class: "nav-link" if !current_page?('/users')%>
