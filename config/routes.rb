@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get '/reger' => 'users#reger'
   get '/pt' => 'users#trainees'
+  get '/c_reger' => 'users#c_reger'
+  get '/c_pt' => 'users#c_trainees'
   
 
   get "/admins_list" => "list#lista"
