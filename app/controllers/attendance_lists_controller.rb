@@ -13,6 +13,16 @@ class AttendanceListsController < ApplicationController
   def show
   end
 
+  #GET /c_trainess
+  def c_trainees
+    @atts = AttendanceList.all
+  end 
+
+  #GET /c_reger
+  def c_reger
+    @atts = AttendanceList.all
+  end
+
   # GET /attendance_lists/new
   def new
     @attendance_list = AttendanceList.new
