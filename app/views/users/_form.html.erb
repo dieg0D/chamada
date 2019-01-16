@@ -25,9 +25,35 @@
   <br>
   <div class = "row">
       <div class="field col">
-      <%= form.check_box :membro, class: "form-check-label" %>
+        <%= form.check_box :membro, class: "form-check-label" %>
         <%= form.label :membro %>
       </div>
+
+      <%# Selecao de nucleo %>
+      <div id="choose_core" style="display:none;">
+        <%= form.label :nucleo, "Escolha o núcleo do usuário" %>
+        <%= form.select :nucleo, ['nenhum', 'NDP', 'NOE', 'NUT', 'NAM_BOPE', 'NAM_Marketing'], class: "form-control" %>
+      </div>
+
+      <%# JAVASCRIPT PARA APARECER OU APAGAR SELECAO DE NUCLEO SE USER FOR MEMBRO OU NAO %>
+      <script type="text/javascript">
+        var checkbox = document.getElementById('user_membro');
+        var details_div = document.getElementById('choose_core');
+
+        if(checkbox.checked) { // Para aparecer o select quando editar um membro
+          details_div.style['display'] = 'block';
+        }
+
+        checkbox.onchange = function() {
+          if(this.checked) {
+            details_div.style['display'] = 'block';
+          } else {
+            details_div.style['display'] = 'none';
+            document.getElementById('user_nucleo').value = 'nenhum'; // Para Trainee sempre serem de nenhum nucleo
+          }
+        };
+      </script>
+      <%# END JAVASCRIPT %>
   </div>
   <br>
       <div class="actions">
