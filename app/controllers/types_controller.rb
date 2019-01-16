@@ -28,8 +28,8 @@ class TypesController < ApplicationController
 
     respond_to do |format|
       if @type.save
-        format.html { redirect_to @type, notice: 'Type was successfully created.' }
-        format.json { render :show, status: :created, location: @type }
+        format.html { redirect_to :root, notice: 'Type was successfully created.' }
+        format.json { render :root, status: :created, location: @type }
       else
         format.html { render :new }
         format.json { render json: @type.errors, status: :unprocessable_entity }
