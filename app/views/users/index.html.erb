@@ -27,6 +27,7 @@
               <span class="badge badge-danger mr-1 d-block">Trainee</span>
             <% end %>
         </td>
+          <td><%= link_to 'Histórico', user_path(user), class: 'text-primary btn-sm' %></td>
           <td><%= link_to 'Editar', edit_user_path(user), class: 'text-primary btn-sm' %></td>
           <td><%= link_to 'Excluir', user, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger btn-sm" %></td>
         </tr>

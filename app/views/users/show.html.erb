@@ -1,22 +1,93 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/navbar' %>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @user.nome %>
-</p>
+<div class = "container pb-3 pt-4">
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <h1 class="text-primary">
+    <%= @user.nome %> 
+    
+    <% if @user.membro %>
+    <span class="badge badge-success">M</span>
+    <% else %>
+    <span class="badge badge-danger">T</span>
+    <% end %>
 
-<p>
-  <strong>Membro:</strong>
-  <%= @user.membro %>
-</p>
+    <!-- Para quando dar merge com branch que possui nucleos
+    
+    <%# case @user.nucleo %>
+    <%# when "NDP" %>  
+    <span class="badge badge-info">NDP</span>
+    <%# when "NUT" %>  
+    <span class="badge badge-dark">NUT</span>
+    <%# when "NOE" %>  
+    <span class="badge badge-warning">NOE</span>
+    <%# when "NAM_BOPE" %>  
+    <span class="badge badge-primary">BOPE</span>
+    <%# when "NAM_Marketing" %>  
+    <span class="badge badge-light">Marketing</span>
+    <%# else %>  
+    <span class="badge badge-secondary">Sem núcleo</span>
+    <%# end %>
+
+    -->
+  </h1>
+
+  <h5><%= @user.email %></h5>
+
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', :back %>
+
+  
+  <table class ="table table-hover table-bordered my-4" >
+    <thead>
+      <tr>
+        <th>Tipos de Chamadas que Participa</th>
+        <th>Presenças</th>
+        <th>Faltas</th>
+        <th>Faltas Justificadas</th>
+        <th>Atrasos Justificados</th>
+        <th><strong>Total</strong></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% total_p = 0 %>
+      <% total_f = 0 %>
+      <% total_fj = 0 %>
+      <% total_aj = 0 %>
+      <% total_row = 0 %>
+
+      <% @types.each do |type| %>
+        <tr>
+          <td><%= type.name %></td>
+
+          <% ids = type.attendance_list_ids %>
+
+          <td><%= p = Status.all.select{ |s| ids.include?(s.attendance_list_id) && s.user_id == @user.id && s.state == "Presente" }.count %></td>
+          <td><%= f = Status.all.select{ |s| ids.include?(s.attendance_list_id) && s.user_id == @user.id && s.state == "Falta" }.count %></td>
+          <td><%= fj = Status.all.select{ |s| ids.include?(s.attendance_list_id) && s.user_id == @user.id && s.state == "Falta Justificada" }.count %></td>
+          <td><%= aj = Status.all.select{ |s| ids.include?(s.attendance_list_id) && s.user_id == @user.id && s.state == "Atraso Justificado" }.count %></td>
+          <td><%= row = p + f + fj + aj %></td>
+        <tr>
+
+        <% total_p += p %>
+        <% total_f += f %>
+        <% total_fj += fj %>
+        <% total_aj += aj %>
+        <% total_row += row %>
+      <% end %>
+
+      <tr class="table-active">
+          <td><strong>Total</strong></td>
+
+          <td><%= total_p %></td>
+          <td><%= total_f %></td>
+          <td><%= total_fj %></td>
+          <td><%= total_aj %></td>
+          <td><%= total_row %></td>
+        <tr>
+
+    </tbody>
+  </table>
 
 
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</div>

@@ -13,11 +13,14 @@
 <div class = "container pb-3 pt-4">
     <div class= "form-row">
       
-        <div class="field col">
-          <%= form.label :type_id, "Tipo da Chamada"%>
-          <%= collection_select(:attendance_list, :type_id,  @select_type, :id, :name, {}, {:class=>'form-control'})%>
+      <div class="field col">
+        <%= form.label :type_id, "Tipo da Chamada"%>
+        <%= collection_select(:attendance_list, :type_id,  @select_type, :id, :name, {}, {:class=>'form-control'})%>
       </div>
     </div>
+    
+    <%= link_to 'Criar novo tipo de chamada', new_type_path, class: 'btn btn-success px-4 my-2'%>
+    
     <div class = "row">
       <div class="field col">
         <%= form.label :description %>
@@ -26,7 +29,7 @@
     </div>
 
     <div class = "row">
-      <div class="field col">
+      <div class="field col mt-2">
         <%= form.label :data %>
 
        <%= form.date_field :data, class: 'form-control', strftime: "dd/mm/yyyy" %>

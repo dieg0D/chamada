@@ -12,7 +12,7 @@ puts "Seeding..."
 
 Admin.create(email: "admin@admin.com", password: "12345678", password_confirmation:"12345678");
 
-Type.create(name: "Processo Trainee")
-Type.create(name: "REGER")
+# Type.create(name: "Processo Trainee")
+# Type.create(name: "REGER")
 
 puts "Seeding... OK"
