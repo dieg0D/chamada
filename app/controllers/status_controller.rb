@@ -6,7 +6,7 @@ class StatusController < ApplicationController
 	
 	def new
 		@att = AttendanceList.all.last
-		@user = @att.type.users
+		@user = @att.type.users.where(active: true)
 		@status = []
 		@user.each do |u|
 			@status << Status.new(user_id: u.id, attendance_list_id: @att.id, state: "Presente")

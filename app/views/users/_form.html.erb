@@ -32,7 +32,7 @@
       <%# Selecao de nucleo %>
       <div id="choose_core" style="display:none;">
         <%= form.label :nucleo, "Escolha o núcleo do usuário" %>
-        <%= form.select :nucleo, ['nenhum', 'NDP', 'NOE', 'NUT', 'NAM_BOPE', 'NAM_Marketing'], class: "form-control" %>
+        <%= form.select :nucleo, ['nenhum', 'NDP', 'NOE', 'NUT', 'NAM_BOPE', 'NAM_Marketing'], {}, class: "form-control" %>
       </div>
 
       <%# JAVASCRIPT PARA APARECER OU APAGAR SELECAO DE NUCLEO SE USER FOR MEMBRO OU NAO %>
