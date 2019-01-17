@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2019_01_16_011353) do
     t.boolean "membro"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nucleo"
   end
 
   add_foreign_key "attendance_lists", "types"

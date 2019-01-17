@@ -4,7 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @core = params[:core]
+
+    if @core.nil?
+      @users = User.all
+    else
+      @users = User.all.where(nucleo: @core)
+    end
   end
 
   #GET /pt
@@ -80,6 +86,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:nome, :email, :membro)
+      params.require(:user).permit(:nome, :email, :membro, :nucleo)
     end
 end
