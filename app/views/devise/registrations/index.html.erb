@@ -1,0 +1,27 @@
+<%= render 'shared/navbar'%>
+
+<p id="notice"><%= notice %></p>
+<div class = "container pb-3 pt-4">
+   <h3><span class="badge badge-pill badge-warning">Administradores</span></h3>
+  <br>
+
+  <table class ="table table-hover" >
+    <thead>
+      <tr>
+        <th>Email</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @admins.order(:email).each do |a| %>
+        <tr>
+            <td> <%= a.email %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Novo', admins_path, class: 'btn btn-primary float-right mr-3 px-4' %>
+</div>
