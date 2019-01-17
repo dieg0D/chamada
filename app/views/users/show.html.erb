@@ -11,24 +11,21 @@
     <span class="badge badge-danger">T</span>
     <% end %>
 
-    <!-- Para quando dar merge com branch que possui nucleos
-    
-    <%# case @user.nucleo %>
-    <%# when "NDP" %>  
+    <% case @user.nucleo %>
+    <% when "NDP" %>  
     <span class="badge badge-info">NDP</span>
-    <%# when "NUT" %>  
+    <% when "NUT" %>  
     <span class="badge badge-dark">NUT</span>
-    <%# when "NOE" %>  
+    <% when "NOE" %>  
     <span class="badge badge-warning">NOE</span>
-    <%# when "NAM_BOPE" %>  
+    <% when "NAM_BOPE" %>  
     <span class="badge badge-primary">BOPE</span>
-    <%# when "NAM_Marketing" %>  
+    <% when "NAM_Marketing" %>  
     <span class="badge badge-light">Marketing</span>
-    <%# else %>  
+    <% else %>  
     <span class="badge badge-secondary">Sem núcleo</span>
-    <%# end %>
+    <% end %>
 
-    -->
   </h1>
 
   <h5><%= @user.email %></h5>
