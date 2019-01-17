@@ -30,7 +30,7 @@ class StatusController < ApplicationController
 
   	def edit
   		@att = AttendanceList.find(params[:id])
-  		@user = User.all.where(active: true).order(:nome)
+  		@user = User.all.order(:nome)
   		@status = @att.status
   		puts @status
   	end
