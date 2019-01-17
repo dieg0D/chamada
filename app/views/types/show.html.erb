@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  Users: <%= @type.users.map(&:nome).join(',') %>
+  Users: <%= @type.users.where(active: true).map(&:nome).join(',') %>
 </p>
 
 <%= link_to 'Edit', edit_type_path(@type) %> |

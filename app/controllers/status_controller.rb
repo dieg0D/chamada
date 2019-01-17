@@ -6,7 +6,7 @@ class StatusController < ApplicationController
 	
 	def new
 		@att = AttendanceList.all.last
-		@user = @att.type.users
+		@user = @att.type.users.where(active: true)
 		@status = []
 		@user.each do |u|
 			@status << Status.new(user_id: u.id, attendance_list_id: @att.id, state: "Presente")
@@ -30,7 +30,7 @@ class StatusController < ApplicationController
 
   	def edit
   		@att = AttendanceList.find(params[:id])
-  		@user = User.all.order(:nome)
+  		@user = User.all.where(active: true).order(:nome)
   		@status = @att.status
   		puts @status
   	end

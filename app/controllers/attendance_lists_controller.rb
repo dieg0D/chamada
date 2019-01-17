@@ -17,7 +17,7 @@ class AttendanceListsController < ApplicationController
   def new
     @attendance_list = AttendanceList.new
     
-    @users = User.all.order(nome: :asc)
+    @users = User.all.where(active: true).order(nome: :asc)
   end
 
   # GET /attendance_lists/1/edit
