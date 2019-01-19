@@ -1,7 +1,7 @@
-<h2>Sign up</h2>
+<h2>Novo Administrador</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_for(@admin) do |f| %>
+  <%= @admin.errors.full_messages %>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -22,8 +22,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Criar" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

@@ -9,9 +9,8 @@ Rails.application.routes.draw do
   get '/reger' => 'users#reger'
   get '/pt' => 'users#trainees'
   
-
-  get "/admins_list" => "list#lista"
-  devise_for :admins, controllers: {:registrations => "admins/registrations"}
+  devise_for :admins, controllers: {:registrations => "admins/registrations", :sessions => "admins/sessions"}, :path_prefix => 'my'
+  resources :admins
  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -8,20 +8,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mx-2">
             <li class="nav-item">
-                <%= link_to "Inicio", attendance_lists_path, class: "nav-link" if !current_page?('/attendance_lists')%>
-                <%= link_to "Inicio", attendance_lists_path, class: "text-dark nav-link active" if current_page?('/attendance_lists')%>
+                <%= link_to "Inicio", attendance_lists_path, class: "nav-link" if !current_page?('/attendance_lists') && !current_page?('/') %>
+                <%= link_to "Inicio", attendance_lists_path, class: "text-primary nav-link active" if current_page?('/attendance_lists') || current_page?('/') %>
             </li>
             <li class="nav-item">
-                <%= link_to "Lista de Membros", reger_path, class: "nav-link" if !current_page?('/users')%>
-                <%= link_to "Lista de Membros", reger_path, class: "text-dark nav-link active" if current_page?('/users')%>
+                <%= link_to "Lista de Membros", reger_path, class: "nav-link" if !current_page?('/reger')%>
+                <%= link_to "Lista de Membros", reger_path, class: "text-primary nav-link active" if current_page?('/reger')%>
             </li>
             <li class="nav-item">
-                <%= link_to "Lista de Trainees", pt_path, class: "nav-link" if !current_page?('/users')%>
-                <%= link_to "Lista de Trainees", pt_path, class: "text-dark nav-link active" if current_page?('/users')%>
+                <%= link_to "Lista de Trainees", pt_path, class: "nav-link" if !current_page?('/pt')%>
+                <%= link_to "Lista de Trainees", pt_path, class: "text-primary nav-link active" if current_page?('/pt')%>
             </li>
             <li class="nav-item">
                 <%= link_to "Todos / Núcleos", users_path, class: "nav-link" if !current_page?('/users')%>
-                <%= link_to "Todos / Núcleos", users_path, class: "text-dark nav-link active" if current_page?('/users')%>
+                <%= link_to "Todos / Núcleos", users_path, class: "text-primary nav-link active" if current_page?('/users')%>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Administradores", admins_path, class: "nav-link" if !request.env['PATH_INFO'].include?('/admins')%>
+                <%= link_to "Administradores", admins_path, class: "text-warning nav-link active" if request.env['PATH_INFO'].include?('/admins')%>
             </li>
             </ul>
             <!--

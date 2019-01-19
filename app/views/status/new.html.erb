@@ -21,7 +21,7 @@
 							<%= @user.find(st.user_id).email %>
 						</td>
 						<td>
-							<%= s.select :state, options_for_select(["Presente", "Falta", "Falta Justificada", "Atraso Justificado"]), :class => 'genForm_dropBox form-control' %>
+							<%= s.select :state, options_for_select(["Presente", "Falta", "Falta Justificada", "Atraso Justificado"]), {}, :class => 'genForm_dropBox form-control' %>
 						</td>
 						<%= s.hidden_field :user_id, value: st.user_id %>	    
 					</tr>

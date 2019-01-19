@@ -21,7 +21,7 @@
 					</td>
 					
 					<td>
-						<%= s.select :state, options_for_select(["Presente", "Falta", "Falta Justificada", "Atraso Justificado"], st.state), class: 'form-control' %>
+						<%= s.select :state, options_for_select(["Presente", "Falta", "Falta Justificada", "Atraso Justificado"], st.state), {}, {class: 'form-control', disabled: !@user.find(st.user_id).active } %>
 					</td>
 
 					<%= s.hidden_field :user_id, value: st.user_id %>
