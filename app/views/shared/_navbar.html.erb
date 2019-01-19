@@ -24,8 +24,8 @@
                 <%= link_to "Todos / Núcleos", users_path, class: "text-primary nav-link active" if current_page?('/users')%>
             </li>
             <li class="nav-item">
-                <%= link_to "Administradores", admins_path, class: "nav-link" if !current_page?('/admins')%>
-                <%= link_to "Administradores", admins_path, class: "text-warning nav-link active" if current_page?('/admins')%>
+                <%= link_to "Administradores", admins_index_path, class: "nav-link" if !current_page?('/admins')%>
+                <%= link_to "Administradores", admins_index_path, class: "text-warning nav-link active" if current_page?('/admins')%>
             </li>
             </ul>
             <!--

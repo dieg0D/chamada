@@ -5,30 +5,16 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  # GET /resources
-  def index
-    @admins = Admin.all
-  end
-
   # GET /resource/sign_up
   def new
-    @admin = Admin.new
+    super
   end
 
   # POST /resource
    def create
-    #super
-    @admin = Admin.new( params.require(:admin).permit(:email, :password, :password_confirmation) )
-
-    respond_to do |format|
-      if @admin.save
-        format.html { redirect_to admins_path}
-        format.json { render :show, status: :created, location: @admin }
-      else
-        format.html { render :new }
-        format.json { render json: @admin.errors, status: :unprocessable_entity }
-      end
-    end
+    super
+    #@admin = Admin.new( params.require(:admin).permit(:email, :password, :password_confirmation) )
+    #@admin
    end
    
    def sign_up(resource_name, resource)
