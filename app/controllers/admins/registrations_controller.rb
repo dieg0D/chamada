@@ -49,7 +49,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
 
   def destroy
     Admin.find(params[:format]).destroy
-    redirect_to root_path
+    redirect_to admins_path
     #redirect_back(fallback_location: fallback_location)
   end
 
