@@ -16,7 +16,7 @@
       <% @admins.order(:email).each do |a| %>
         <tr>
             <td class="<%= 'text-primary' if a == current_admin %>"> <%= a.email %> </td>
-            <td> <%= link_to 'Editar', admins_edit_path(a), class: 'text-warning' %> </td>
+            <td> <%= link_to 'Editar', edit_admin_path(a), class: 'text-warning' %> </td>
             <td> <%= link_to 'Excluir', admin_registration_path(a), method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger" %> </td>
         </tr>
       <% end %>
@@ -25,5 +25,5 @@
 
   <br>
 
-  <%= link_to 'Novo', admins_new_path, class: 'btn btn-primary float-right mr-3 px-4' %>
+  <%= link_to 'Novo', new_admin_path, class: 'btn btn-primary float-right mr-3 px-4' %>
 </div>

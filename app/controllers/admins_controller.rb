@@ -22,7 +22,7 @@ class AdminsController < ApplicationController
   end
 
   def edit
-    @admin = Admin.find(params[:format])
+    @admin = Admin.find(params[:id])
   end
 
   def update
