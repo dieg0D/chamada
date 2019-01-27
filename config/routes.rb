@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   
+  concern :with_datatable do
+    post 'datatable', on: :collection
+  end
+
   resources :types
   resources :users
-  resources :attendance_lists
+  resources :attendance_lists, concerns: [:with_datatable]
   resources :status
   root :to =>'attendance_lists#index'
 

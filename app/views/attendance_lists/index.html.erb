@@ -3,25 +3,18 @@
   <h3><span class="badge badge-pill badge-success">Listas de Chamada</span></h3>
   <br>
 
-    <table class ="table table-hover">
+    <table id="att_lists-datatable" class ="table table-striped table-hover" data-source="<%= datatable_attendance_lists_path(format: :json) %>">
     <thead>
       <tr>
         <th>Data</th>
         <th>Tipo</th>
-        <th colspan="3"></th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
 
     <tbody>
-      <% @attendance_lists.each do |attendance_list| %>
-        <tr>
-          <td><%= attendance_list.data.strftime("%d/%m/%y")%></td>
-          <td><%= attendance_list.type.name %></td>
-          <td><%= link_to 'Mostrar', attendance_list, class: 'text-primary btn-sm'%></td>
-          <td><%= link_to 'Editar', edit_attendance_list_path(attendance_list), class: 'text-primary btn-sm'%></td>
-          <td><%= link_to 'Excluir', attendance_list, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-danger btn-sm" %></td>
-        </tr>
-      <% end %>
     </tbody>
   </table>
 
