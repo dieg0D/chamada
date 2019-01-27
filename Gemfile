@@ -12,6 +12,7 @@ gem 'jquery-rails'
 # Datatables
 gem 'jquery-datatables'
 gem 'ajax-datatables-rails'
+gem 'draper' # For using view decorators
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'

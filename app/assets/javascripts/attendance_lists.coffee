@@ -8,7 +8,15 @@ $ ->
     serverSide: true
     ajax: $('#att_lists-datatable').data('source')
     pagingType: 'simple_numbers'
+    rowReorder: true
+    columnDefs: [
+      { orderable: true, className: 'reorder', targets: [0, 1] },
+      { orderable: false, targets: '_all' }
+    ]
     columns: [
       {data: 'data'}
       {data: 'type'}
+      {data: 'show'}
+      {data: 'edit'}
+      {data: 'remove'}
     ]
