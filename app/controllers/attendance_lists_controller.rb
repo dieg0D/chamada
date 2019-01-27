@@ -2,15 +2,15 @@ class AttendanceListsController < ApplicationController
   before_action :set_attendance_list, only: [:show, :edit, :update, :destroy]
   before_action :select_type, only: [:new, :edit, :update, :create]
 
+  skip_before_action :verify_authenticity_token
+
   # GET /attendance_lists
   # GET /attendance_lists.json
   def index
-    @attendance_lists = AttendanceList.all
+  end
 
-    respond_to do |format|
-      format.html
-      format.json { render json: AttendanceListDatatable.new(params) }
-    end
+  def datatable
+    render json: AttendanceListDatatable.new(params)
   end
 
   # GET /attendance_lists/1

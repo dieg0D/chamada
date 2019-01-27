@@ -6,7 +6,9 @@ $ ->
   $('#att_lists-datatable').dataTable
     processing: true
     serverSide: true
-    ajax: $('#att_lists-datatable').data('source')
+    ajax: 
+      url: $('#att_lists-datatable').data('source')
+      type: 'POST'
     pagingType: 'simple_numbers'
     rowReorder: true
     columnDefs: [
