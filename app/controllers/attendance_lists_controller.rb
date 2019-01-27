@@ -6,6 +6,11 @@ class AttendanceListsController < ApplicationController
   # GET /attendance_lists.json
   def index
     @attendance_lists = AttendanceList.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: AttendanceListDatatable.new(params) }
+    end
   end
 
   # GET /attendance_lists/1
