@@ -42,8 +42,8 @@ class TypesController < ApplicationController
   def update
     respond_to do |format|
       if @type.update(type_params)
-        format.html { redirect_to @type, notice: 'Type was successfully updated.' }
-        format.json { render :show, status: :ok, location: @type }
+        format.html { redirect_to types_path, notice: 'Type was successfully updated.' }
+        format.json { render types_path, status: :ok, location: @type }
       else
         format.html { render :edit }
         format.json { render json: @type.errors, status: :unprocessable_entity }

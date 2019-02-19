@@ -1,6 +1,7 @@
-<h1>Editing Type</h1>
+<%= render 'shared/navbar'%>
 
-<%= render 'form', type: @type %>
+<div class = "container pb-3 pt-4">
+    <h3><span class="badge badge-pill badge-success">Editar Tipo</span></h3>
 
-<%= link_to 'Show', @type %> |
-<%= link_to 'Back', types_path %>
+    <%= render 'form', type: @type %>
+</div>

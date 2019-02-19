@@ -15,8 +15,11 @@
     </div>
   </div>
   
-  <%= link_to 'Criar novo tipo de chamada', new_type_path, class: 'btn btn-success px-4 my-3'%>
-  
+  <div class="my-3">
+    <%= link_to 'Criar novo tipo de chamada', new_type_path, class: 'btn btn-success px-4 mb-2'%>
+    <%= link_to 'Ver todos os tipos', types_path, class: 'btn btn-primary px-3 mb-2'%>
+  </div>
+
   <div class = "row">
     <div class="field col">
       <%= form.label :description %>
