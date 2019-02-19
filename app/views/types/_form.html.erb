@@ -1,31 +1,37 @@
 <%= form_with(model: type, local: true) do |form| %>
-  <% if type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(type.errors.count, "error") %> prohibited this type from being saved:</h2>
-
-      <ul>
-      <% type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  
+  <% if type.errors.full_messages.empty? %>
+    <div class="py-4"></div> <%# Div apenas para dar espaco %>
+  <% else %>
+    <% type.errors.full_messages.each do |e| %>
+      <span class="badge badge-danger my-3"> <%= e %> </span>
+    <% end %>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field form-group">
+    <%= form.label :name, "Nome" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <% for user in User.all.where(active: true) %>
-      <div>
-        <%= check_box_tag "type[user_ids][]", user.id, @type.users.include?(user) %>
-        <%= user.nome %>
-      </div>
-    <% end %>
+  <div class="w-100 d-flex justify-content-center">
+    <h4><span class="badge badge-pill badge-warning my-4">Adicionar Participantes</span></h4>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field d-flex justify-content-center flex-wrap">
+    
+    <%= render 'tables_for_form', core: "PRES" %>
+    <%= render 'tables_for_form', core: "NDP" %>
+    <%= render 'tables_for_form', core: "NUT" %>
+    <%= render 'tables_for_form', core: "NOE" %>
+    <%= render 'tables_for_form', core: "NAT" %>
+    <%= render 'tables_for_form', core: "NUMAR" %>
+    <%= render 'tables_for_form', core: "nenhum" %>
+  
+  </div>
+
+  <div class="actions d-flex justify-content-between my-5">
+    <%= link_to 'Voltar', :back, class: "btn btn-secondary px-5" %>
+    <%= form.submit 'Criar', class: "btn btn-primary buttons-new px-5" if current_page?('/types/new')%>
+    <%= form.submit 'Atualizar', class: "btn btn-primary buttons-new px-4" if !current_page?('/types/new')%>
   </div>
 <% end %>
