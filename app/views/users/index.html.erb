@@ -16,18 +16,21 @@
   <%= link_to 'NOE', users_path(core: "NOE"), class: 'badge badge-pill badge-success' if @core == "NOE" %>
   <%= link_to 'NOE', users_path(core: "NOE"), class: 'badge badge-pill badge-secondary' if @core != "NOE" %>
 
-  <%= link_to 'BOPE', users_path(core: "NAM_BOPE"), class: 'badge badge-pill badge-success' if @core == "NAM_BOPE" %>
-  <%= link_to 'BOPE', users_path(core: "NAM_BOPE"), class: 'badge badge-pill badge-secondary' if @core != "NAM_BOPE" %>
+  <%= link_to 'NAT', users_path(core: "NAT"), class: 'badge badge-pill badge-success' if @core == "NAT" %>
+  <%= link_to 'NAT', users_path(core: "NAT"), class: 'badge badge-pill badge-secondary' if @core != "NAT" %>
   
-  <%= link_to 'Marketing', users_path(core: "NAM_Marketing"), class: 'badge badge-pill badge-success' if @core == "NAM_Marketing" %>
-  <%= link_to 'Marketing', users_path(core: "NAM_Marketing"), class: 'badge badge-pill badge-secondary' if @core != "NAM_Marketing" %>
+  <%= link_to 'NUMAR', users_path(core: "NUMAR"), class: 'badge badge-pill badge-success' if @core == "NUMAR" %>
+  <%= link_to 'NUMAR', users_path(core: "NUMAR"), class: 'badge badge-pill badge-secondary' if @core != "NUMAR" %>
 
-  <%= link_to 'Nenhum Núcleo', users_path(core: "nenhum"), class: 'badge badge-pill badge-success' if @core == "nenhum" %>
-  <%= link_to 'Nenhum Núcleo', users_path(core: "nenhum"), class: 'badge badge-pill badge-secondary' if @core != "nenhum" %>
+  <%= link_to 'Trainees', users_path(core: "nenhum"), class: 'badge badge-pill badge-success' if @core == "nenhum" %>
+  <%= link_to 'Trainees', users_path(core: "nenhum"), class: 'badge badge-pill badge-secondary' if @core != "nenhum" %>
+
+  <%= link_to 'PRES', users_path(core: "PRES"), class: 'badge badge-pill badge-success' if @core == "PRES" %>
+  <%= link_to 'PRES', users_path(core: "PRES"), class: 'badge badge-pill badge-secondary' if @core != "PRES" %>
   </h3>
 
   <br>
-  <table class ="table table-striped" >
+  <table class ="table table-responsive-sm table-responsive-md table-striped" >
     <thead>
       <tr>
         <th>Nome</th>
@@ -58,7 +61,7 @@
     </tbody>
   </table>
 
-  <br>
-
-  <%= link_to 'Novo', new_user_path, class: 'btn float-right btn-primary mr-3 mb-4 px-4' %>
+  <div class="d-flex w-100 justify-content-center my-4">
+    <%= link_to 'Novo', new_user_path, class: 'btn btn-primary mr-3 mb-4 px-5' %>
+  </div>
 </div>

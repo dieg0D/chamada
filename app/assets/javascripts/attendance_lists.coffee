@@ -10,6 +10,7 @@ $ ->
       url: $('#att_lists-datatable').data('source')
       type: 'POST'
     pagingType: 'simple_numbers'
+    responsive: true
     rowReorder: true
     columnDefs: [
       { orderable: true, className: 'reorder', targets: [0, 1] },

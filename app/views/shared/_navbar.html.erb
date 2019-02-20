@@ -20,8 +20,8 @@
                 <%= link_to "Lista de Trainees", pt_path, class: "text-primary nav-link active" if current_page?('/pt')%>
             </li>
             <li class="nav-item">
-                <%= link_to "Todos / Núcleos", users_path, class: "nav-link" if !current_page?('/users')%>
-                <%= link_to "Todos / Núcleos", users_path, class: "text-primary nav-link active" if current_page?('/users')%>
+                <%= link_to "Todos / Núcleos", users_path, class: "nav-link" if !request.env['PATH_INFO'].include?('/users')%>
+                <%= link_to "Todos / Núcleos", users_path, class: "text-primary nav-link active" if request.env['PATH_INFO'].include?('/users')%>
             </li>
             <li class="nav-item">
                 <%= link_to "Administradores", admins_path, class: "nav-link" if !request.env['PATH_INFO'].include?('/admins')%>
@@ -40,3 +40,11 @@
         </div>
     </div>
 </nav>
+
+<% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+<% end %>
+
+<% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+<% end %>

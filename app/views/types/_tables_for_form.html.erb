@@ -1,0 +1,28 @@
+<table id="<%= core %>" class="table-type-user table table-hover table-bordered mx-3", style="min-width:15em; max-width:15em;">
+    <thead>
+        <tr class="table-secondary">
+            <th> 
+                <input id="ch_all_<%= core %>" type="checkbox" aria-label=" <%= core %> ">
+                <%= core %> 
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% User.all.where(active: true, nucleo: core).each do |user| %>
+            <tr>
+                <td>
+                    <%= check_box_tag "type[user_ids][]", user.id, @type.users.include?(user) %>
+                    <%= user.nome %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%# JAVASCRIPT PARA CRIAR CHECKBOX QUE SELECIONA TODOS DE UMA TABELA %>
+<script type="text/javascript">
+    $("#ch_all_<%= core %>").change(function () {
+        $("#<%= core %>").find("input:checkbox").prop('checked', $(this).prop("checked"));
+    });
+</script>
+<%# FIM JAVASCRIPT %>

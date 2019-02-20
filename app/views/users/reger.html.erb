@@ -1,11 +1,10 @@
 <%= render 'shared/navbar'%>
 
-<p id="notice"><%= notice %></p>
 <div class = "container pb-3 pt-4">
    <h3><span class="badge badge-pill badge-success">Lista de Membros</span></h3>
   <br>
 
-  <table class ="table table-hover" >
+  <table class ="table table-responsive-sm table-responsive-md table-hover" >
     <thead>
       <tr>
         <th>Nome</th>
@@ -33,7 +32,7 @@
     </tbody>
   </table>
 
-  <br>
-
-  <%= link_to 'Novo', new_user_path, class: 'btn btn-primary float-right mr-3 px-4' %>
+  <div class="d-flex w-100 justify-content-center my-4">
+    <%= link_to 'Novo', new_user_path, class: 'btn btn-primary mr-3 px-5' %>
+  </div>
 </div>
