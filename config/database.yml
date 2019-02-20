@@ -82,4 +82,4 @@ production:
   <<: *default
   database: chamada_production
   username: chamada
-  password: <%= ENV['CHAMADA_DATABASE_PASSWORD'] %>
+  password: "<%= ENV['CHAMADA_DATABASE_PASSWORD'] %>"
