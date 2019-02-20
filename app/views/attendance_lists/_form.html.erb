@@ -1,45 +1,46 @@
 <%= form_with(model: attendance_list, local: true) do |form| %>
-  <% if attendance_list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(attendance_list.errors.count, "error") %> prohibited this attendance_list from being saved:</h2>
-
-      <ul>
-      <% attendance_list.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  
+  <% if attendance_list.errors.full_messages.empty? %>
+    <div class="py-4"></div> <%# Div apenas para dar espaco %>
+  <% else %>
+    <% attendance_list.errors.full_messages.each do |e| %>
+      <span class="badge badge-danger my-3"> <%= e %> </span>
+    <% end %>
   <% end %>
-<div class = "container pb-3 pt-4">
-    <div class= "form-row">
-      
-        <div class="field col">
-          <%= form.label :type_id, "Tipo da Chamada"%>
-          <%= collection_select(:attendance_list, :type_id,  @select_type, :id, :name, {}, {:class=>'form-control'})%>
-      </div>
-    </div>
-    <div class = "row">
-      <div class="field col">
-        <%= form.label :description %>
-        <%= form.text_area :description, class: "form-control" %>
-      </div>
-    </div>
 
-    <div class = "row">
-      <div class="field col">
-        <%= form.label :data %>
-
-       <%= form.date_field :data, class: 'form-control', strftime: "dd/mm/yyyy" %>
-
-      </div>
+  <div class= "form-row">
+    <div class="field col">
+      <%= form.label :type_id, "Tipo da Chamada"%>
+      <%= collection_select(:attendance_list, :type_id,  @select_type, :id, :name, {}, {:class=>'form-control'})%>
     </div>
+  </div>
+  
+  <div class="my-3">
+    <%= link_to 'Criar novo tipo de chamada', new_type_path, class: 'btn btn-success px-4 mb-2'%>
+    <%= link_to 'Ver todos os tipos', types_path, class: 'btn btn-primary px-3 mb-2'%>
+  </div>
 
-    <br>
-    <div class="actions">
-      <%= form.submit 'Avançar', class: "btn float-right  btn-primary mr-3 px-4" if current_page?(new_attendance_list_path)%>
-      <%= form.submit 'Editar Lista de Chamada', class: "btn float-right  btn-primary mr-3 px-4" if !current_page?(new_attendance_list_path) %>
-      <%= link_to 'Exibir lista de Chamada', @attendance_list, class: 'btn btn-info float-right mr-3 px-4' if !current_page?(new_attendance_list_path)%>
-      <%= link_to 'Back', attendance_lists_path, class: 'btn btn-secondary mr-3 px-4'%>
+  <div class = "row">
+    <div class="field col">
+      <%= form.label :description %>
+      <%= form.text_area :description, class: "form-control" %>
     </div>
-  <% end %>
-</div>
+  </div>
+
+  <div class = "row">
+    <div class="field col mt-2">
+      <%= form.label :data %>
+
+      <%= form.date_field :data, class: 'form-control', strftime: "dd/mm/yyyy" %>
+
+    </div>
+  </div>
+
+  <br>
+  <div class="actions d-flex flex-wrap justify-content-between my-4">
+    <%= link_to 'Voltar', attendance_lists_path(format: [:html, :json]), class: 'btn btn-secondary my-1 px-4'%>
+    <%= form.submit 'Avançar', class: "btn btn-primary px-4" if current_page?(new_attendance_list_path)%>
+    <%= form.submit 'Editar Lista de Chamada', class: "btn btn-primary my-1 px-4" if !current_page?(new_attendance_list_path) %>
+    <%= link_to 'Exibir lista de Chamada', @attendance_list, class: 'btn btn-info my-1 px-4' if !current_page?(new_attendance_list_path)%>
+  </div>
+<% end %>

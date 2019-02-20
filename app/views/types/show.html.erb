@@ -5,5 +5,9 @@
   <%= @type.name %>
 </p>
 
+<p>
+  Users: <%= @type.users.where(active: true).map(&:nome).join(',') %>
+</p>
+
 <%= link_to 'Edit', edit_type_path(@type) %> |
 <%= link_to 'Back', types_path %>

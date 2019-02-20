@@ -2,10 +2,15 @@ class AttendanceListsController < ApplicationController
   before_action :set_attendance_list, only: [:show, :edit, :update, :destroy]
   before_action :select_type, only: [:new, :edit, :update, :create]
 
+  skip_before_action :verify_authenticity_token
+
   # GET /attendance_lists
   # GET /attendance_lists.json
   def index
-    @attendance_lists = AttendanceList.all
+  end
+
+  def datatable
+    render json: AttendanceListDatatable.new(params)
   end
 
   # GET /attendance_lists/1
@@ -17,7 +22,7 @@ class AttendanceListsController < ApplicationController
   def new
     @attendance_list = AttendanceList.new
     
-    @users = User.all.order(nome: :asc)
+    @users = User.all.where(active: true).order(nome: :asc)
   end
 
   # GET /attendance_lists/1/edit

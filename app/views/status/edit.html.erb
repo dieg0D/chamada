@@ -1,8 +1,10 @@
 <%= render 'shared/navbar'%>
 
 <div class = "container pb-3 pt-4">
+	<h3><span class="badge badge-pill badge-success">Editar lista de Chamada</span></h3>
+  	<br>
 	<%= form_tag status_path, :method => :patch do %>
-		<table class = "table table-hover">
+		<table class = "table table-responsive-sm table-responsive-md table-hover">
 			<tr>
 				<th>Nome</th>
 				<th>Email</th>
@@ -21,7 +23,10 @@
 					</td>
 					
 					<td>
-						<%= s.select :state, options_for_select(["Presente", "Falta", "Falta Justificada", "Atraso Justificado"], st.state), class: 'form-control' %>
+						<%= s.select :state, options_for_select(["Presente", "Falta", "Falta Justificada", "Atraso Justificado"], st.state), {}, 
+												{ class: 'form-control', 
+												disabled: !@user.find(st.user_id).active,
+												style: "min-width:11em;" } %>
 					</td>
 
 					<%= s.hidden_field :user_id, value: st.user_id %>

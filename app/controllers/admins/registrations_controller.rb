@@ -7,14 +7,14 @@ class Admins::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-     super
+    super
   end
 
   # POST /resource
    def create
     super
-    #@admin = Admin.new(:email => params[:email], :password => params[:password], :password_confirmation => params[:password_confirmation] )
-    #@admin.save
+    #@admin = Admin.new( params.require(:admin).permit(:email, :password, :password_confirmation) )
+    #@admin
    end
    
    def sign_up(resource_name, resource)
@@ -35,7 +35,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
 
   def destroy
     Admin.find(params[:format]).destroy
-    redirect_to root_path
+    redirect_to admins_path
     #redirect_back(fallback_location: fallback_location)
   end
 
