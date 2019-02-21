@@ -1,0 +1,5 @@
+<h1>Faltosos do(a) <%= @type %> do dia <%= @data %></h1>
+
+<% @missing.each do |u| %>
+    <p><%= u.nome %> - <%= u.email %></p>
+<% end %>

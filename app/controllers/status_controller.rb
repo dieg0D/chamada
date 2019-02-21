@@ -14,17 +14,23 @@ class StatusController < ApplicationController
 	end
 
 	def create
-		@a = params[:status]
-		@a.each do |a|
-			puts "AAAAAAAAAAAAAAAA"
+		@att = AttendanceList.all.last
+		@missing = []
+		
+		params[:status].each do |a|
 			
-			@att = AttendanceList.all.last
 			id = a["user_id"].to_i
 			st = a["state"].to_s
-			puts id.class
-			puts st.class
 			@ss = Status.create(user_id: id, attendance_list_id: @att.id, state: st)
+
+			if st == "Falta" then @missing << User.find(id) end 
 		end
+
+		AttendanceListMailer.with(data: @att.data, 
+									type: @att.type.name, 
+									missing: @missing,
+									admin: current_admin.email).missing_email.deliver_now
+
 		redirect_to root_path
   end
 
